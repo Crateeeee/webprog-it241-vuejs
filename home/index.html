@@ -1,22 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My first Vue page</title>
-  <link rel="stylesheet" href="css/style.css?version=0.1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crate Marshall Pinlac | Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="CSS/my.css?version=0.2">
 </head>
 <body>
 
-<h1>Vue Example</h1>
+    <div id="image-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="full-image">
+        <div id="caption"></div>
+    </div>
 
-<p>The message is taken from 'data' inside the Vue instance by writing {{ message }} inside the div with id="app".</p>
+    <div class="bg-animation"></div>
 
-<div id="app">
-  {{ message }}
-</div>
+    <nav class="navbar">
+        <div class="logo">CMP.</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#personal-hub">My Hub</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="resources.html">Resources</a></li> 
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h3>Welcome to my world</h3>
+            <h1>Crate Marshall Pinlac</h1>
+            <h3>I am into <span class="typing-text">Web Development</span></h3>
+            <p>A Web Programming student at Asia Pacific College. I build interactive experiences and solve problems with code.</p>
+            
+            <div class="social-icons">
+                <a href="https://www.facebook.com/CrateeMarshall" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/@cratemarshall" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/crate-marshall-pinlac-57572824a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Crateeeee" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
 
-<script src = "js/vue.js"></script>
+            <a href="#personal-hub" class="btn">Explore My Hub</a>
+        </div>
 
+        <div class="hero-image">
+            <img src="profile.jpg" alt="Crate Marshall Pinlac">
+        </div>
+    </section>
+
+    <section id="personal-hub">
+        <div class="container">
+            <h2 class="heading">Personal <span>Hub</span></h2>
+            
+            <div class="hub-grid">
+                
+                <div class="hub-card">
+                    <div class="card-header">
+                        <i class="fas fa-graduation-cap card-icon"></i>
+                        <h3>Education</h3>
+                    </div>
+                    <ul class="detail-list">
+                        <li><span>2023 - Present:</span> Asia Pacific College (BSIT)</li>
+                        <li><span>2021 - 2023:</span> Senior High School (STEM)</li>
+                         <li><span>Achievement:</span></li>
+                         <li> Integrated Attendance Facial Recognition System</li>
+                         <li> Email Cleaner Developer/Designer</li>
+                         <li> OutSystems Developer</li>
+                         <li> Scrum Foundation Certificate</li>
+                    </ul>
+                </div>
+
+                <div class="hub-card image-card">
+                    <div class="img-box">
+                        <img src="https://s3-ap-southeast-1.amazonaws.com/kalibrr-company-assets/logos/52GHMYQP6F32QUQU8FVE-58003a2b.png" alt="Course Image">
+                    </div>
+                    <div class="text-box">
+                         <div class="card-header">
+                            <i class="fas fa-book card-icon"></i>
+                            <h3>Course</h3>
+                        </div>
+                        <p>Bachelor of Science in Information Technology (BSIT).</p>
+                    </div>
+                </div>
+
+                <div class="hub-card image-card">
+                     <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=500&q=60" alt="IT Experience">
+                    </div>
+                    <div class="text-box">
+                        <div class="card-header">
+                            <i class="fas fa-laptop-code card-icon"></i>
+                            <h3>IT Experience</h3>
+                        </div>
+                        <ul class="detail-list compact">
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>Python, Java</li>
+                            <li>VS Code, Git/GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hub-card full-width">
+                    <div class="card-header center-header">
+                        <i class="fas fa-headset card-icon"></i>
+                        <h3>Hobbies & Interests</h3>
+                    </div>
+                    
+                    <div class="hobby-container">
+                        <div class="hobby-block">
+                            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=500&q=60" alt="Music">
+                            <h4>My Music</h4>
+                            <p>Vibing to local scenes.</p>
+                            <div class="hobby-links">
+                                <a href="#">My Band <i class="fas fa-external-link-alt"></i></a>
+                                <a href="#">My Playlist <i class="fas fa-music"></i></a>
+                            </div>
+                        </div>
+
+                         <div class="hobby-block">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=500&q=60" alt="Games">
+                            <h4>Games</h4>
+                            <p>Valorant, League of Legends, Genshin Impact.</p>
+                        </div>
+
+                         <div class="hobby-block">
+                            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=500&q=60" alt="Movies">
+                            <h4>Movies & Series</h4>
+                             <p>Sci-Fi, Thrillers, and Anime.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hub-card full-width">
+                     <div class="card-header center-header">
+                        <i class="fas fa-rocket card-icon"></i>
+                        <h3>Goals & Dreams</h3>
+                    </div>
+                    <p style="text-align: center; max-width: 800px; margin: 0 auto;">To become a proficient Full-Stack Developer and contribute to innovative tech solutions that help society.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2 class="heading">My <span>Gallery</span></h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #ccc;">Click an image to view full screen.</p>
+            
+            <div class="gallery-container">
+                
+                <div class="gallery-item tilt-card">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=60" alt="My Coding Setup">
+                    <div class="overlay"><h4>Coding</h4><p>My current setup</p></div>
+                </div>
+
+                <div class="gallery-item tilt-card">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=60" alt="Relaxing Cat">
+                    <div class="overlay"><h4>Chill Vibe</h4><p>My cat companion</p></div>
+                </div>
+
+                <div class="gallery-item tilt-card">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&q=60" alt="Late Night Work">
+                    <div class="overlay"><h4>Grind</h4><p>Late night coding session</p></div>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; color: #999; margin-top: 3rem; border-top: 1px solid var(--border-color);">
+        <p>Copyright &copy; 2026 Crate Marshall Pinlac.</p>
+    </footer>
+
+    <script src="JS/script.js"></script>
 </body>
 </html>
