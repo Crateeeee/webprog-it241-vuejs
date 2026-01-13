@@ -9,8 +9,8 @@
 export default {
   data() {
     return {
-      name: 'Apples',
-      message: 'I like apples'
+      name: 'Adobo',
+      message: 'Chicken Adobo is way better than Pork Adobo. Fight me!'
     }
   }
 };
