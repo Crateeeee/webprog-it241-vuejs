@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       name: 'Adobo',
-      message: 'Chicken Adobo is way better than Pork Adobo. Fight me!... With rice of course!'
+      message: 'Chicken Adobo!'
     }
   }
 };
