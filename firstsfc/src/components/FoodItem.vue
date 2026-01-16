@@ -18,10 +18,10 @@ export default {
 
 <style>
   .Adobo {
-    border: dashed black 1px;
+    border: dashed rgb(255, 255, 255) 1px;
     display: inline-block;
     margin: 10px;
     padding: 10px;
-    background-color: red;
+    background-color: rgba(74, 45, 45, 0.861);
   }
 </style>
