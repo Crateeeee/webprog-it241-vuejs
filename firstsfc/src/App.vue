@@ -40,7 +40,7 @@
       </div>
 
       <div class="hero-image">
-        <img src="/profile.jpg" alt="Crate Marshall Pinlac">
+        <img src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/588499354_3260824137411823_7561699207407932475_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHWWQVAzKDVl2rBT8eppCib_ILmUwliMiT8guZTCWIyJEa1j9rKu6h_prpXXofCIoSFXjAgcaeoIS0IlTpqJtLm&_nc_ohc=GdBqKbbjVq0Q7kNvwFuSilV&_nc_oc=Adly6o5OcGezPLC2rYeazWSG_vi2tjeXEH8_Jtlji611E9sBIxPQaLnGxzIeykjgjOU&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=4lAK6RWKMBJeVl4FxNIRvw&oh=00_AfoSzSudI8jO2m8wbxYimCpqsxp0BFqgn4Fj52uX67nJxA&oe=697024DD" alt="Crate Marshall Pinlac">
     </div>
     </section>
 
