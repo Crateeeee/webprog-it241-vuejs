@@ -40,8 +40,8 @@
       </div>
 
       <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=60" alt="Crate Marshall Pinlac">
-      </div>
+        <img src="/profile.jpg" alt="Crate Marshall Pinlac">
+    </div>
     </section>
 
     <section id="personal-hub">
