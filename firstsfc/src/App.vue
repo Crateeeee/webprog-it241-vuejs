@@ -73,7 +73,9 @@
 </template>
 
 <style>
-/* I have kept your exact CSS below */
+/* =========================================
+   1. CSS VARIABLES & RESET
+   ========================================= */
 :root {
     --bg-color: #081b29;
     --second-bg-color: #112e42;
@@ -98,6 +100,9 @@ body {
     overflow-x: hidden;
 }
 
+/* =========================================
+   2. ANIMATED BACKGROUND
+   ========================================= */
 .bg-animation {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -105,6 +110,9 @@ body {
     z-index: -1;
 }
 
+/* =========================================
+   3. NAVIGATION BAR
+   ========================================= */
 .navbar {
     position: fixed; top: 0; width: 100%;
     padding: 1.5rem 10%;
@@ -118,6 +126,7 @@ body {
 .logo {
     font-size: 2rem; font-weight: 700; color: var(--main-color);
     text-shadow: 0 0 10px var(--main-color);
+    cursor: default;
 }
 
 .nav-links { display: flex; list-style: none; gap: 2rem; }
@@ -125,36 +134,104 @@ body {
     color: var(--text-color); font-size: 1.1rem; font-weight: 500;
     text-decoration: none; transition: 0.3s; position: relative;
 }
+.nav-links a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    background: var(--main-color); left: 0; bottom: -5px; transition: 0.3s;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a:hover, .nav-links a.active { color: var(--main-color); }
+.hamburger { display: none; font-size: 1.5rem; color: var(--text-color); cursor: pointer; }
 
+/* =========================================
+   4. HERO SECTION (UPDATED WITH IMAGE)
+   ========================================= */
 .hero {
     min-height: 100vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Puts text left, image right */
     align-items: center;
     padding: 0 10%;
-    padding-top: 80px;
+    padding-top: 80px; /* To account for fixed navbar */
     gap: 2rem;
 }
 
+.hero-content {
+    max-width: 600px;
+    z-index: 1;
+}
+
+.hero-content h3 { font-size: 1.8rem; font-weight: 400; margin-bottom: 1rem; }
 .hero-content h1 {
-    font-size: 4rem; font-weight: 700;
+    font-size: 4rem; font-weight: 700; margin-bottom: 1rem;
     background: linear-gradient(45deg, var(--main-color), #fff);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
+.typing-text { color: var(--main-color); font-weight: 600; }
+.hero-content p { font-size: 1.2rem; line-height: 1.8; margin: 1.5rem 0; color: #ccc; }
+
+.social-icons { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+.social-icons a {
+    display: inline-flex; justify-content: center; align-items: center;
+    width: 45px; height: 45px; background: transparent;
+    border: 2px solid var(--main-color); border-radius: 50%;
+    font-size: 1.5rem; color: var(--main-color); text-decoration: none; transition: 0.3s;
+}
+.social-icons a:hover {
+    background: var(--main-color); color: var(--bg-color);
+    box-shadow: 0 0 15px var(--main-color); transform: translateY(-5px);
+}
+.btn {
+    display: inline-block; padding: 1rem 2.5rem; background: var(--main-color);
+    color: var(--bg-color); border-radius: 3rem; font-weight: 600;
+    text-decoration: none; transition: 0.3s; box-shadow: 0 0 20px var(--main-color);
+}
+.btn:hover { background: transparent; color: var(--main-color); border: 2px solid var(--main-color); }
+
+/* --- HERO IMAGE STYLES --- */
+.hero-image {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
 
 .hero-image img {
-    width: 400px; height: 400px;
-    object-fit: cover; border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 50%;
     border: 4px solid var(--main-color);
-    box-shadow: 0 0 40px var(--main-color);
-    animation: floatImage 4s ease-in-out infinite;
+    box-shadow: 0 0 40px var(--main-color); /* Glowing effect */
+    animation: floatImage 4s ease-in-out infinite; /* Floating animation */
+    transition: 0.4s ease;
 }
 
+.hero-image img:hover {
+    box-shadow: 0 0 80px var(--main-color);
+    transform: scale(1.05);
+}
+
+/* Floating Animation Keyframes */
 @keyframes floatImage {
-    0%, 100% { transform: translateY(0); }
+    0% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
 }
 
+/* =========================================
+   5. SECTIONS & HEADINGS
+   ========================================= */
+section { padding: 5rem 10%; min-height: 80vh; }
+.container { max-width: 1200px; margin: 0 auto; }
+.heading { text-align: center; font-size: 3rem; margin-bottom: 3rem; }
+.heading span { color: var(--main-color); }
+
+/* =========================================
+   6. PERSONAL HUB - GRID & CARDS
+   ========================================= */
 .hub-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -167,14 +244,192 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 2rem;
+    transition: 0.4s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.heading { text-align: center; font-size: 3rem; margin-bottom: 3rem; }
-.heading span { color: var(--main-color); }
+.hub-card:hover {
+    transform: translateY(-5px);
+    background: var(--card-hover-bg);
+    border-color: var(--main-color);
+    box-shadow: 0 10px 30px rgba(0, 171, 240, 0.1);
+}
 
-footer {
+/* Header inside cards (Icon + Title) */
+.card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.card-header.center-header { justify-content: center; }
+.card-icon { font-size: 2rem; color: var(--main-color); }
+.hub-card h3 { font-size: 1.5rem; margin: 0; }
+
+/* Image Cards (Course & IT Experience) */
+.hub-card.image-card {
+    flex-direction: row;
+    padding: 0;
+    align-items: stretch;
+}
+
+.img-box {
+    flex: 2; /* Takes up 40% space */
+    min-height: 250px;
+}
+.img-box img {
+    width: 100%; height: 100%; object-fit: cover;
+    border-right: 1px solid var(--border-color);
+}
+.text-box {
+    flex: 3; /* Takes up 60% space */
     padding: 2rem;
-    text-align: center;
-    background: var(--second-bg-color);
+    display: flex; flex-direction: column; justify-content: center;
 }
-</style>
+
+/* Hobbies Section Styling */
+.hub-card.full-width { grid-column: 1 / -1; }
+
+.hobby-container {
+    display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.hobby-block {
+    flex: 1; min-width: 250px; max-width: 350px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 15px; overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: 0.3s; text-align: center; padding-bottom: 1.5rem;
+}
+.hobby-block:hover { border-color: var(--main-color); transform: translateY(-5px); }
+
+.hobby-block img {
+    width: 100%; height: 180px; object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+.hobby-block h4 { margin: 1rem 0 0.5rem; color: var(--main-color); font-size: 1.2rem; }
+.hobby-block p { color: #ccc; font-size: 0.95rem; padding: 0 1rem; }
+
+.hobby-links { margin-top: 1rem; display: flex; justify-content: center; gap: 1rem; }
+.hobby-links a {
+    font-size: 0.9rem; color: var(--text-color);
+    padding: 5px 15px; border: 1px solid var(--main-color);
+    border-radius: 20px; transition: 0.3s;
+}
+.hobby-links a:hover { background: var(--main-color); color: var(--bg-color); }
+
+/* Lists */
+.detail-list { list-style: none; padding-left: 1rem; }
+.detail-list li { position: relative; margin: 15px 0; font-size: 1rem; color: #ddd; }
+.detail-list li::before {
+    content: '▹'; position: absolute; left: -1.5rem;
+    color: var(--main-color); font-size: 1.2rem;
+}
+.detail-list.compact li { margin: 8px 0; }
+.detail-list span { color: var(--main-color); font-weight: 600; margin-right: 5px;}
+
+/* =========================================
+   7. GALLERY & LIGHTBOX MODAL
+   ========================================= */
+.gallery-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
+}
+.gallery-item {
+    position: relative; overflow: hidden; border-radius: 15px;
+    cursor: pointer; border: 1px solid var(--border-color); height: 300px;
+}
+.gallery-item img {
+    width: 100%; height: 100%; object-fit: cover; transition: 0.5s; display: block;
+}
+.gallery-item:hover img { transform: scale(1.1); }
+.overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0, 8, 20, 0.9), transparent);
+    padding: 2rem; transform: translateY(100%); transition: 0.3s; pointer-events: none;
+}
+.gallery-item:hover .overlay { transform: translateY(0); }
+.overlay h4 { font-size: 1.5rem; color: var(--main-color); margin-bottom: 0.5rem; }
+.overlay p { color: #ddd; }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; z-index: 1000; padding-top: 50px;
+    left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
+    background-color: rgba(0,0,0,0.95);
+    backdrop-filter: blur(5px);
+    animation: fadeInModal 0.3s ease;
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto; display: block; width: 80%; max-width: 1000px;
+    max-height: 80vh; object-fit: contain; border-radius: 5px;
+    box-shadow: 0 0 20px var(--main-color);
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto; display: block; width: 80%; max-width: 700px;
+    text-align: center; color: #ccc; padding: 10px 0; height: 150px;
+}
+
+/* The Close Button */
+.close {
+    position: absolute; top: 20px; right: 35px; color: #f1f1f1;
+    font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer;
+}
+.close:hover, .close:focus { color: var(--main-color); text-decoration: none; cursor: pointer; }
+
+@keyframes fadeInModal { from {opacity: 0} to {opacity: 1} }
+
+/* =========================================
+   8. RESPONSIVE DESIGN (MOBILE)
+   ========================================= */
+@media (max-width: 991px) {
+    /* Tablet adjustments */
+    .hero { padding: 0 5%; gap: 1rem; }
+    .hero-image { width: 400px; height: 400px; }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Navigation */
+    .hamburger { display: block; }
+    .nav-links {
+        position: fixed; top: 80px; left: -100%; width: 100%;
+        flex-direction: column; background: rgba(8, 27, 41, 0.95);
+        backdrop-filter: blur(10px); padding: 2rem; transition: 0.3s;
+    }
+    .nav-links.active { left: 0; }
+    
+    /* Mobile Hero Section */
+    .hero {
+        flex-direction: column-reverse; /* Stacks image on TOP of text */
+        padding-top: 100px; /* More padding for navbar */
+        padding-bottom: 5rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-content h1 { font-size: 2.5rem; line-height: 1.2; }
+    .hero-content h3 { font-size: 1.3rem; }
+    .hero-content p { font-size: 1rem; }
+
+    .hero-image {
+        width: 300px;
+        height: 300px; /* Smaller image on mobile */
+        margin-bottom: 1rem;
+    }
+    
+    .social-icons { justify-content: center; } /* Center icons */
+
+    section { padding: 3rem 5%; }
+
+    /* Stacks hub cards vertically on mobile */
+    .hub-card.image-card { flex-direction: column; }
+    .img-box { min-height: 200px; }
+    .img-box img { border-right: none; border-bottom: 1px solid var(--border-color); }
+
+    .hobby-container { flex-direction: column; align-items: center; }
+    .hobby-block { width: 100%; max-width: none; }
+
+    .modal-content { width: 95%; }
+}</style>
