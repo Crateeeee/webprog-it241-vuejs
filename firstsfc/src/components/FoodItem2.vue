@@ -1,5 +1,5 @@
 <template>
-  <div class="Adobo">
+  <div class="Beef">
     <h2>{{ name }}</h2>
     <p>{{ message }}</p>
   </div>
@@ -9,15 +9,15 @@
 export default {
   data() {
     return {
-      name: 'Adobo',
-      message: 'Chicken Adobo is way better than Pork Adobo. Fight me!... With rice of course!'
+      name: 'Beef',
+      message: 'Bulalo!'
     }
   }
 };
 </script>
 
 <style>
-  .Adobo {
+  .Beef {
     border: dashed black 1px;
     display: inline-block;
     margin: 10px;
